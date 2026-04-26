@@ -1,3 +1,6 @@
-target/
+﻿target/
+.gradle/
+**/build/
 .idea/workspace.xml
 *.iml
+local.properties

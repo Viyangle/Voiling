@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Voiling</string>
+    <string name="hint_input">输入日文歌词（离线转写）</string>
+    <string name="btn_convert">离线转写</string>
+    <string name="label_original">原文</string>
+    <string name="label_kana">假名</string>
+    <string name="label_cn">中文拟音（拼音风格）</string>
+    <string name="hint_long_press">长按下方词条可手动修正拟音并写入本地词典</string>
+    <string name="dialog_title">修改拟音</string>
+    <string name="dialog_positive">保存</string>
+    <string name="dialog_negative">取消</string>
+</resources>
