@@ -1,4 +1,4 @@
-﻿package com.voiling;
+package com.voiling;
 
 import android.app.Application;
 

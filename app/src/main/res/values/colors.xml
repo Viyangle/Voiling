@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="bg">#F4F2ED</color>
     <color name="surface">#FFFFFF</color>
@@ -8,3 +7,4 @@
     <color name="text_main">#1E1B16</color>
     <color name="text_sub">#5E5A52</color>
 </resources>
+

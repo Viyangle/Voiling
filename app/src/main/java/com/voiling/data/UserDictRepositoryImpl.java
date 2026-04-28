@@ -1,4 +1,4 @@
-﻿package com.voiling.data;
+package com.voiling.data;
 
 import com.voiling.data.local.UserDictDao;
 import com.voiling.data.local.UserDictEntry;

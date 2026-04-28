@@ -1,4 +1,4 @@
-﻿package com.voiling.data.local;
+package com.voiling.data.local;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

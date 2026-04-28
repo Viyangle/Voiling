@@ -1,4 +1,4 @@
-﻿package com.voiling.data.local;
+package com.voiling.data.local;
 
 import androidx.room.Dao;
 import androidx.room.Insert;

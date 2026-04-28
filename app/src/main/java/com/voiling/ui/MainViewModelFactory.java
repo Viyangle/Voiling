@@ -1,4 +1,4 @@
-﻿package com.voiling.ui;
+package com.voiling.ui;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;

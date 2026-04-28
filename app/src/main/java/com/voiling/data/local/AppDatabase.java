@@ -1,4 +1,4 @@
-﻿package com.voiling.data.local;
+package com.voiling.data.local;
 
 import android.content.Context;
 

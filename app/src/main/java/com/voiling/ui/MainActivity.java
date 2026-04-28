@@ -1,4 +1,4 @@
-﻿package com.voiling.ui;
+package com.voiling.ui;
 
 import android.os.Bundle;
 import android.widget.EditText;

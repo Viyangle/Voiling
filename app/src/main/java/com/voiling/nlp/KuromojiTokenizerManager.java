@@ -1,4 +1,4 @@
-﻿package com.voiling.nlp;
+package com.voiling.nlp;
 
 import com.atilika.kuromoji.ipadic.Token;
 import com.atilika.kuromoji.ipadic.Tokenizer;

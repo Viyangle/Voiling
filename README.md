@@ -1,4 +1,4 @@
-﻿# Voiling Android v1 (Offline)
+# Voiling Android v1 (Offline)
 
 This repository is now a Gradle multi-module project:
 - `app`: Android application (Java + XML, MVVM, Room, Kuromoji)
