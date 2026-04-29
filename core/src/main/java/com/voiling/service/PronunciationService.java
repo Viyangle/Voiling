@@ -36,27 +36,35 @@ public class PronunciationService {
             return new PronunciationResult("", "", "", new ArrayList<>());
         }
 
-        List<TokenReading> tokenReadings = tokenizerManager.tokenizeWithReading(text);
-        List<TokenPronunciation> tokens = new ArrayList<>(tokenReadings.size());
+        List<TokenPronunciation> tokens = new ArrayList<>();
         StringBuilder kanaLine = new StringBuilder();
         StringBuilder phoneticLine = new StringBuilder();
+        String[] lines = text.split("\\R", -1);
 
-        for (int i = 0; i < tokenReadings.size(); i++) {
-            TokenReading token = tokenReadings.get(i);
-            String surface = token.getSurface();
-            String hiraReading = KanaConverter.katakanaToHiragana(token.getReading());
-            String ruleBased = cnPhoneticEngine.toCnPhonetic(hiraReading);
-            String override = userDictRepository.findBySurface(surface);
-            String finalPhonetic = override == null ? ruleBased : override;
-
-            tokens.add(new TokenPronunciation(surface, hiraReading, finalPhonetic));
-
-            if (i > 0) {
-                kanaLine.append(' ');
-                phoneticLine.append(' ');
+        for (int lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+            if (lineIndex > 0) {
+                kanaLine.append('\n');
+                phoneticLine.append('\n');
             }
-            kanaLine.append(hiraReading);
-            phoneticLine.append(finalPhonetic);
+
+            List<TokenReading> tokenReadings = tokenizerManager.tokenizeWithReading(lines[lineIndex]);
+            for (int i = 0; i < tokenReadings.size(); i++) {
+                TokenReading token = tokenReadings.get(i);
+                String surface = token.getSurface();
+                String hiraReading = KanaConverter.katakanaToHiragana(token.getReading());
+                String ruleBased = cnPhoneticEngine.toCnPhonetic(hiraReading);
+                String override = userDictRepository.findBySurface(surface);
+                String finalPhonetic = override == null ? ruleBased : override;
+
+                tokens.add(new TokenPronunciation(surface, hiraReading, finalPhonetic));
+
+                if (i > 0) {
+                    kanaLine.append(' ');
+                    phoneticLine.append(' ');
+                }
+                kanaLine.append(hiraReading);
+                phoneticLine.append(finalPhonetic);
+            }
         }
 
         return new PronunciationResult(text, kanaLine.toString(), phoneticLine.toString(), tokens);

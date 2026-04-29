@@ -1,6 +1,7 @@
 package com.voiling.ui;
 
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
@@ -34,10 +35,14 @@ public class MainActivity extends AppCompatActivity {
         tokenAdapter = new TokenAdapter(this::showEditDialog);
         binding.tokenRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.tokenRecyclerView.setAdapter(tokenAdapter);
+        binding.tokenRecyclerView.setNestedScrollingEnabled(false);
 
-        binding.convertButton.setOnClickListener(v ->
-                viewModel.convert(String.valueOf(binding.inputEditText.getText()))
-        );
+        binding.convertButton.setOnClickListener(v -> {
+            binding.inputEditText.clearFocus();
+            hideKeyboard();
+            viewModel.convert(String.valueOf(binding.inputEditText.getText()));
+            binding.getRoot().post(() -> binding.getRoot().smoothScrollTo(0, binding.originalLabel.getTop()));
+        });
 
         viewModel.getResultLiveData().observe(this, result -> {
             binding.originalText.setText(result.getOriginalText());
@@ -61,4 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.dialog_negative, null)
                 .show();
     }
+
+    private void hideKeyboard() {
+        InputMethodManager imm = getSystemService(InputMethodManager.class);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(binding.inputEditText.getWindowToken(), 0);
+        }
+    }
+
 }

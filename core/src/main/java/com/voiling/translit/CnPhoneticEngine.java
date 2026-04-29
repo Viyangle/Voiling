@@ -8,57 +8,37 @@ public class CnPhoneticEngine {
     private static final Map<Character, String> KANA_MAP = new HashMap<>();
 
     static {
-        DIGRAPH_MAP.put("きゃ", "kya");
-        DIGRAPH_MAP.put("きゅ", "kyu");
-        DIGRAPH_MAP.put("きょ", "kyo");
-        DIGRAPH_MAP.put("しゃ", "sha");
-        DIGRAPH_MAP.put("しゅ", "shu");
-        DIGRAPH_MAP.put("しょ", "sho");
-        DIGRAPH_MAP.put("ちゃ", "cha");
-        DIGRAPH_MAP.put("ちゅ", "chu");
-        DIGRAPH_MAP.put("ちょ", "cho");
-        DIGRAPH_MAP.put("にゃ", "nya");
-        DIGRAPH_MAP.put("にゅ", "nyu");
-        DIGRAPH_MAP.put("にょ", "nyo");
-        DIGRAPH_MAP.put("ひゃ", "hya");
-        DIGRAPH_MAP.put("ひゅ", "hyu");
-        DIGRAPH_MAP.put("ひょ", "hyo");
-        DIGRAPH_MAP.put("みゃ", "mya");
-        DIGRAPH_MAP.put("みゅ", "myu");
-        DIGRAPH_MAP.put("みょ", "myo");
-        DIGRAPH_MAP.put("りゃ", "rya");
-        DIGRAPH_MAP.put("りゅ", "ryu");
-        DIGRAPH_MAP.put("りょ", "ryo");
-        DIGRAPH_MAP.put("ぎゃ", "gya");
-        DIGRAPH_MAP.put("ぎゅ", "gyu");
-        DIGRAPH_MAP.put("ぎょ", "gyo");
-        DIGRAPH_MAP.put("じゃ", "ja");
-        DIGRAPH_MAP.put("じゅ", "ju");
-        DIGRAPH_MAP.put("じょ", "jo");
-        DIGRAPH_MAP.put("びゃ", "bya");
-        DIGRAPH_MAP.put("びゅ", "byu");
-        DIGRAPH_MAP.put("びょ", "byo");
-        DIGRAPH_MAP.put("ぴゃ", "pya");
-        DIGRAPH_MAP.put("ぴゅ", "pyu");
-        DIGRAPH_MAP.put("ぴょ", "pyo");
+        DIGRAPH_MAP.put("\u304d\u3083", "kya"); DIGRAPH_MAP.put("\u304d\u3085", "kyu"); DIGRAPH_MAP.put("\u304d\u3087", "kyo");
+        DIGRAPH_MAP.put("\u3057\u3083", "sha"); DIGRAPH_MAP.put("\u3057\u3085", "shu"); DIGRAPH_MAP.put("\u3057\u3087", "sho");
+        DIGRAPH_MAP.put("\u3061\u3083", "cha"); DIGRAPH_MAP.put("\u3061\u3085", "chu"); DIGRAPH_MAP.put("\u3061\u3087", "cho");
+        DIGRAPH_MAP.put("\u306b\u3083", "nya"); DIGRAPH_MAP.put("\u306b\u3085", "nyu"); DIGRAPH_MAP.put("\u306b\u3087", "nyo");
+        DIGRAPH_MAP.put("\u3072\u3083", "hya"); DIGRAPH_MAP.put("\u3072\u3085", "hyu"); DIGRAPH_MAP.put("\u3072\u3087", "hyo");
+        DIGRAPH_MAP.put("\u307f\u3083", "mya"); DIGRAPH_MAP.put("\u307f\u3085", "myu"); DIGRAPH_MAP.put("\u307f\u3087", "myo");
+        DIGRAPH_MAP.put("\u308a\u3083", "rya"); DIGRAPH_MAP.put("\u308a\u3085", "ryu"); DIGRAPH_MAP.put("\u308a\u3087", "ryo");
+        DIGRAPH_MAP.put("\u304e\u3083", "gya"); DIGRAPH_MAP.put("\u304e\u3085", "gyu"); DIGRAPH_MAP.put("\u304e\u3087", "gyo");
+        DIGRAPH_MAP.put("\u3058\u3083", "ja");  DIGRAPH_MAP.put("\u3058\u3085", "ju");  DIGRAPH_MAP.put("\u3058\u3087", "jo");
+        DIGRAPH_MAP.put("\u3073\u3083", "bya"); DIGRAPH_MAP.put("\u3073\u3085", "byu"); DIGRAPH_MAP.put("\u3073\u3087", "byo");
+        DIGRAPH_MAP.put("\u3074\u3083", "pya"); DIGRAPH_MAP.put("\u3074\u3085", "pyu"); DIGRAPH_MAP.put("\u3074\u3087", "pyo");
+    }
 
-        putKana('あ', "a"); putKana('い', "i"); putKana('う', "u"); putKana('え', "e"); putKana('お', "o");
-        putKana('か', "ka"); putKana('き', "ki"); putKana('く', "ku"); putKana('け', "ke"); putKana('こ', "ko");
-        putKana('さ', "sa"); putKana('し', "shi"); putKana('す', "su"); putKana('せ', "se"); putKana('そ', "so");
-        putKana('た', "ta"); putKana('ち', "chi"); putKana('つ', "tsu"); putKana('て', "te"); putKana('と', "to");
-        putKana('な', "na"); putKana('に', "ni"); putKana('ぬ', "nu"); putKana('ね', "ne"); putKana('の', "no");
-        putKana('は', "ha"); putKana('ひ', "hi"); putKana('ふ', "fu"); putKana('へ', "he"); putKana('ほ', "ho");
-        putKana('ま', "ma"); putKana('み', "mi"); putKana('む', "mu"); putKana('め', "me"); putKana('も', "mo");
-        putKana('や', "ya"); putKana('ゆ', "yu"); putKana('よ', "yo");
-        putKana('ら', "ra"); putKana('り', "ri"); putKana('る', "ru"); putKana('れ', "re"); putKana('ろ', "ro");
-        putKana('わ', "wa"); putKana('を', "o"); putKana('ん', "n");
-        putKana('が', "ga"); putKana('ぎ', "gi"); putKana('ぐ', "gu"); putKana('げ', "ge"); putKana('ご', "go");
-        putKana('ざ', "za"); putKana('じ', "ji"); putKana('ず', "zu"); putKana('ぜ', "ze"); putKana('ぞ', "zo");
-        putKana('だ', "da"); putKana('ぢ', "ji"); putKana('づ', "zu"); putKana('で', "de"); putKana('ど', "do");
-        putKana('ば', "ba"); putKana('び', "bi"); putKana('ぶ', "bu"); putKana('べ', "be"); putKana('ぼ', "bo");
-        putKana('ぱ', "pa"); putKana('ぴ', "pi"); putKana('ぷ', "pu"); putKana('ぺ', "pe"); putKana('ぽ', "po");
-        putKana('ゔ', "vu");
-        putKana('ぁ', "a"); putKana('ぃ', "i"); putKana('ぅ', "u"); putKana('ぇ', "e"); putKana('ぉ', "o");
+    static {
+        put('\u3042', "a");  put('\u3044', "i");   put('\u3046', "u");  put('\u3048', "e");  put('\u304a', "o");
+        put('\u304b', "ka"); put('\u304d', "ki");  put('\u304f', "ku"); put('\u3051', "ke"); put('\u3053', "ko");
+        put('\u3055', "sa"); put('\u3057', "shi"); put('\u3059', "su"); put('\u305b', "se"); put('\u305d', "so");
+        put('\u305f', "ta"); put('\u3061', "chi"); put('\u3064', "tsu");put('\u3066', "te"); put('\u3068', "to");
+        put('\u306a', "na"); put('\u306b', "ni");  put('\u306c', "nu"); put('\u306d', "ne"); put('\u306e', "no");
+        put('\u306f', "ha"); put('\u3072', "hi");  put('\u3075', "fu"); put('\u3078', "he"); put('\u307b', "ho");
+        put('\u307e', "ma"); put('\u307f', "mi");  put('\u3080', "mu"); put('\u3081', "me"); put('\u3082', "mo");
+        put('\u3084', "ya"); put('\u3086', "yu");  put('\u3088', "yo");
+        put('\u3089', "ra"); put('\u308a', "ri");  put('\u308b', "ru"); put('\u308c', "re"); put('\u308d', "ro");
+        put('\u308f', "wa"); put('\u3092', "o");   put('\u3093', "n");
+        put('\u304c', "ga"); put('\u304e', "gi");  put('\u3050', "gu"); put('\u3052', "ge"); put('\u3054', "go");
+        put('\u3056', "za"); put('\u3058', "ji");  put('\u305a', "zu"); put('\u305c', "ze"); put('\u305e', "zo");
+        put('\u3060', "da"); put('\u3062', "ji");  put('\u3065', "zu"); put('\u3067', "de"); put('\u3069', "do");
+        put('\u3070', "ba"); put('\u3073', "bi");  put('\u3076', "bu"); put('\u3079', "be"); put('\u307c', "bo");
+        put('\u3071', "pa"); put('\u3074', "pi");  put('\u3077', "pu"); put('\u307a', "pe"); put('\u307d', "po");
+        put('\u3094', "vu");
+        put('\u3041', "a");  put('\u3043', "i");   put('\u3045', "u");  put('\u3047', "e");  put('\u3049', "o");
     }
 
     public String toCnPhonetic(String hiragana) {
@@ -71,7 +51,7 @@ public class CnPhoneticEngine {
         while (i < hiragana.length()) {
             char current = hiragana.charAt(i);
 
-            if (current == 'っ') {
+            if (current == '\u3063') {
                 String next = peekSyllable(hiragana, i + 1);
                 String cons = leadingConsonant(next);
                 sb.append(cons.isEmpty() ? "tsu" : cons);
@@ -79,7 +59,7 @@ public class CnPhoneticEngine {
                 continue;
             }
 
-            if (current == 'ー') {
+            if (current == '\u30fc') {
                 char vowel = trailingVowel(sb.toString());
                 if (vowel != '\0') {
                     sb.append(vowel);
@@ -88,13 +68,9 @@ public class CnPhoneticEngine {
                 continue;
             }
 
-            if (current == 'ん') {
+            if (current == '\u3093') {
                 String next = peekSyllable(hiragana, i + 1);
-                if (next.startsWith("b") || next.startsWith("m") || next.startsWith("p")) {
-                    sb.append('m');
-                } else {
-                    sb.append('n');
-                }
+                sb.append(next.startsWith("b") || next.startsWith("m") || next.startsWith("p") ? "m" : "n");
                 i++;
                 continue;
             }
@@ -112,7 +88,6 @@ public class CnPhoneticEngine {
             sb.append(KANA_MAP.getOrDefault(current, String.valueOf(current)));
             i++;
         }
-
         return sb.toString();
     }
 
@@ -121,8 +96,7 @@ public class CnPhoneticEngine {
             return "";
         }
         if (index + 1 < text.length() && isSmallY(text.charAt(index + 1))) {
-            String digraph = text.substring(index, index + 2);
-            String mapped = DIGRAPH_MAP.get(digraph);
+            String mapped = DIGRAPH_MAP.get(text.substring(index, index + 2));
             if (mapped != null) {
                 return mapped;
             }
@@ -149,14 +123,14 @@ public class CnPhoneticEngine {
     }
 
     private static boolean isSmallY(char c) {
-        return c == 'ゃ' || c == 'ゅ' || c == 'ょ';
+        return c == '\u3083' || c == '\u3085' || c == '\u3087';
     }
 
     private static boolean isVowel(char c) {
         return c == 'a' || c == 'i' || c == 'u' || c == 'e' || c == 'o';
     }
 
-    private static void putKana(char key, String value) {
-        KANA_MAP.put(key, value);
+    private static void put(char kana, String value) {
+        KANA_MAP.put(kana, value);
     }
 }
