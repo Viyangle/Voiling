@@ -22,5 +22,6 @@ public class App {
         System.out.println("Original : " + result.getOriginalText());
         System.out.println("Kana     : " + result.getKanaLine());
         System.out.println("CN Sound : " + result.getCnPhoneticLine());
+        System.out.println("FAST     : " + result.getFastCnPhoneticLine());
     }
 }

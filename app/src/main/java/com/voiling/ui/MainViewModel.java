@@ -23,7 +23,7 @@ public class MainViewModel extends ViewModel {
     public MainViewModel(PronunciationService pronunciationService, UserDictRepository userDictRepository) {
         this.pronunciationService = pronunciationService;
         this.userDictRepository = userDictRepository;
-        this.resultLiveData.setValue(new PronunciationResult("", "", "", new ArrayList<>()));
+        this.resultLiveData.setValue(new PronunciationResult("", "", "", "", new ArrayList<>()));
     }
 
     public LiveData<PronunciationResult> getResultLiveData() {

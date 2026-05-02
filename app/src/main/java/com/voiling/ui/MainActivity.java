@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private MainViewModel viewModel;
     private TokenAdapter tokenAdapter;
+    private boolean detailsExpanded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +42,17 @@ public class MainActivity extends AppCompatActivity {
             binding.inputEditText.clearFocus();
             hideKeyboard();
             viewModel.convert(String.valueOf(binding.inputEditText.getText()));
-            binding.getRoot().post(() -> binding.getRoot().smoothScrollTo(0, binding.originalLabel.getTop()));
+            binding.getRoot().post(() -> binding.getRoot().smoothScrollTo(0, binding.fastCnLabel.getTop()));
         });
+
+        binding.toggleDetailsButton.setOnClickListener(v -> toggleDetails());
+        updateDetailsUi();
 
         viewModel.getResultLiveData().observe(this, result -> {
             binding.originalText.setText(result.getOriginalText());
             binding.kanaText.setText(result.getKanaLine());
             binding.cnText.setText(result.getCnPhoneticLine());
+            binding.fastCnText.setText(result.getFastCnPhoneticLine());
             tokenAdapter.submitList(result.getTokens());
         });
     }
@@ -74,4 +79,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void toggleDetails() {
+        detailsExpanded = !detailsExpanded;
+        updateDetailsUi();
+    }
+
+    private void updateDetailsUi() {
+        binding.detailsContainer.setVisibility(detailsExpanded ? android.view.View.VISIBLE : android.view.View.GONE);
+        binding.toggleDetailsButton.setText(detailsExpanded ? "收起详情" : "展开详情");
+    }
 }
